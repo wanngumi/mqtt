@@ -6,9 +6,9 @@
 #include <sys/types.h>
 
 #include "mosquitto.h"
+#include "userdefs.h"
 
-// #include "mqtt_userdefs.h"
-
+#define __SHOW_MOSQUITTO_INFO__
 
 int main(int argc, char *argv[])
 {
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     //Process the program arguments
     process_arguments(argc, argv, &start_arg);
 
-#ifdef __SHOW_MOSQUITTO_INFO__	
+#ifdef __SHOW_MOSQUITTO_INFO__
     int major, minor, revision;
 
     mosquitto_lib_version(&major, &minor, &revision);
@@ -63,7 +63,8 @@ int main(int argc, char *argv[])
     while(1)
     {
         //Publish the MQTT message 
-	    mosquitto_publish(mosq, NULL, mqtt_channel_name, sizeof(ambient_t), &ambient, MQTT_QOS_0, false);
+	    // mosquitto_publish(mosq, NULL, mqtt_channel_name, sizeof(ambient_t), &ambient, MQTT_QOS_0, false);
+	    mosquitto_publish(mosq, NULL, "test0", sizeof(ambient_t), &ambient, MQTT_QOS_0, false);
         sleep(1);
     }
 

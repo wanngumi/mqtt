@@ -14,8 +14,8 @@ set(CMAKE_C_FLAGS_RELEASE "-O0 -Wall -fmessage-length=0")
 # 	${CMAKE_CURRENT_SOURCE_DIR}/../mqtt_includes
 # )
 
-# set (SOURCE_LIST pub.c ${CMAKE_CURRENT_SOURCE_DIR}/sub.c)
-set (SOURCE_LIST pub.c)
+set (SOURCE_LIST pub.c ${CMAKE_CURRENT_SOURCE_DIR}/common.c)
+# set (SOURCE_LIST pub.c)
 
 # link_directories(${MQTT_LIBS_PATH})
 
